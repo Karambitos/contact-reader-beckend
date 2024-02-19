@@ -1,6 +1,10 @@
 import mongoose from "mongoose/index.js";
 import { app } from "./app.js";
-import { DB_HOST } from "./config.js";
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const { DB_HOST } = process.env;
 
 mongoose.connect(DB_HOST)
     .then(() => {
