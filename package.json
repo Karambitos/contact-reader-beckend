@@ -8,6 +8,7 @@
     "npm": "9.6.6"
   },
   "scripts": {
+    "build": "npm install",
     "start": "NODE_ENV=production node ./server.js",
     "start:dev": "NODE_ENV=development nodemon ./server.js",
     "lint": "eslint **/*.js",
