@@ -1,4 +1,3 @@
-// contactsRouter.js
 import express from "express";
 import {
   getAllContacts,
@@ -7,21 +6,17 @@ import {
   createContact,
   updateContact,
 } from "../../controllers/contactsControllers.js";
-import validateBody  from "../../middlewares/validateBody.js";
-import {createContactSchema, updateContactSchema} from "../../schemas/contactsSchemas.js";
-import controllerWrapper from "../../helpers/controllerWrapper.js";
-
 
 const contactsRouter = express.Router();
 
-contactsRouter.get("/", controllerWrapper(getAllContacts));
+contactsRouter.get("/", getAllContacts);
 
-contactsRouter.get("/:id", controllerWrapper(getOneContact));
+contactsRouter.get("/:id", getOneContact);
 
-contactsRouter.delete("/:id", controllerWrapper(deleteContact));
+contactsRouter.delete("/:id", deleteContact);
 
-contactsRouter.post("/", validateBody(createContactSchema), controllerWrapper(createContact));
+contactsRouter.post("/", createContact);
 
-contactsRouter.put("/:id", validateBody(updateContactSchema), controllerWrapper(updateContact));
+contactsRouter.put("/:id", updateContact);
 
 export default contactsRouter;
